@@ -1,44 +1,40 @@
-//
-//  ViewController.swift
-//  TestGitFork
-//
-//  Created by Mark Furman on 25.05.2024.
-//
-
 import UIKit
+
+enum CurrentLight {
+    case red, yellow, green
+}
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var redSvetofor: UIView!
-    @IBOutlet weak var YellowSvetofor: UIView!
-    @IBOutlet weak var GreenSvetofor: UIView!
+    @IBOutlet weak var yellowSvetofor: UIView!
+    @IBOutlet weak var greenSvetofor: UIView!
     
     @IBOutlet weak var greetingButton: UIButton!
     
-    
+    private var currentLight = CurrentLight.red
+    private let lightIsOn: CGFloat = 1
+    private let lightIsOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redSvetofor.layer.cornerRadius = 50
-        redSvetofor.isHidden = false
+        greetingButton.layer.cornerRadius = 10
         
-        YellowSvetofor.layer.cornerRadius = 50
-        YellowSvetofor.isHidden = false
+        redSvetofor.alpha = lightIsOff
+        yellowSvetofor.alpha = lightIsOff
+        greenSvetofor.alpha = lightIsOff
         
-        GreenSvetofor.layer.cornerRadius = 50
-        GreenSvetofor.isHidden = false
+        print("Размер стороны, доступный в методе ViewDidLoad: \(redSvetofor.frame.height)")
+        
+        redSvetofor.layer.cornerRadius = redSvetofor.frame.width / 2
+        yellowSvetofor.layer.cornerRadius = yellowSvetofor.frame.width / 2
+        greenSvetofor.layer.cornerRadius = greenSvetofor.frame.width / 2
     }
     
-    @IBAction func greetengButtonPressed() {
-        GreenSvetofor.isHidden.toggle()
-        YellowSvetofor.isHidden.toggle()
-        redSvetofor.isHidden.toggle()
-        if GreenSvetofor.isHidden {
-            
+    @IBAction func greetingButtonPressed() {
+        if greenSvetofor.isHidden {
+            // Вставьте ваш код здесь
         }
-        
     }
-    
 }
-
